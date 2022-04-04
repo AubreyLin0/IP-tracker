@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin flexCenter($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+header {
+  @include flexCenter(start, center, column);
+  height: 35vh;
+  background-image: url(../images/pattern-bg.png);
+  background-repeat: no-repeat;
+  padding-top: 20px;
+  .title {
+    margin: 10px 0;
+  }
+  form {
+    .input-group {
+      width: 40vw;
+    }
+  }
+}
+
+.information {
+  @include flexCenter(center, center, null);
+  position: absolute;
+  top: 35%;
+  left: 40%;
+  transform: translate(-35%, -40%);
+  width: 80%;
+  height: 25vh;
+  border: solid 1px gray;
+  border-radius: 1rem;
+  background-color: #fff;
+  div {
+    @include flexCenter(start, start, null);
+    width: 20vw;
+
+    .detail {
+      @include flexCenter(null, null, column);
+      margin: 15px;
+      h4 {
+        text-transform: uppercase;
+      }
+    }
+    span {
+      width: 0;
+      height: 80px;
+      border-right: 1px solid gray;
+      margin: 15px 0;
+    }
+  }
+}
