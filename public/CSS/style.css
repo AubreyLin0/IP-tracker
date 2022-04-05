@@ -1,37 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Ubuntu Mono", monospace;
+  color: #393e46;
 }
 
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 35vh;
-  background-image: url(../images/pattern-bg.png);
+body {
+  background-image: url(../images/background.jpg);
   background-repeat: no-repeat;
-  padding-top: 20px;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
 }
 
-header .title {
-  margin: 10px 0;
-}
-
-header form .input-group {
-  width: 40vw;
-}
-
-.information {
+.App {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,32 +24,131 @@ header form .input-group {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
-  top: 35%;
-  left: 40%;
-  -webkit-transform: translate(-35%, -40%);
-          transform: translate(-35%, -40%);
-  width: 80%;
-  height: 25vh;
-  border: solid 1px gray;
-  border-radius: 1rem;
-  background-color: #fff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.information div {
+.App header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  width: 20vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  padding: 30px 0;
 }
 
-.information div .detail {
+.App header.active {
+  height: 30vh;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+}
+
+.App header .title {
+  margin: 10px 0;
+}
+
+.App header form .input-group {
+  width: 40vw;
+}
+
+.App header form .input-group .btn {
+  font-size: 1.2rem;
+  border: 1px solid #ced4da;
+}
+
+.App header form .input-group .btn i {
+  font-size: 1rem;
+}
+
+.App header form .input-group .form-control,
+.App header form .input-group .btn,
+.App header form .input-group .btn-outline-secondary:focus {
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+}
+
+.App .hidden {
+  display: none;
+}
+
+.App .wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+}
+
+.App .wrap.slide-in-bottom {
+  -webkit-animation: slide-in-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+          animation: slide-in-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.App .wrap .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 500px;
+  border-radius: 1rem;
+  background-color: #e7dfd5;
+}
+
+.App .wrap .information .insideBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 10px solid #c9ccd5;
+  padding: 20px;
+  margin: 30px;
+  width: 400px;
+  height: 400px;
+  position: relative;
+}
+
+.App .wrap .information .insideBorder .title {
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  padding: 15px;
+  font-size: 2rem;
+  background-color: #e7dfd5;
+  text-transform: uppercase;
+}
+
+.App .wrap .information .insideBorder .detail {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,14 +159,207 @@ header form .input-group {
   margin: 15px;
 }
 
-.information div .detail h4 {
+.App .wrap .information .insideBorder .detail h5 {
   text-transform: uppercase;
 }
 
-.information div span {
-  width: 0;
-  height: 80px;
-  border-right: 1px solid gray;
-  margin: 15px 0;
+.App .wrap .map {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  margin: 0 20px;
+}
+
+.App footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 0.5rem;
+  padding: 0 10px;
+}
+
+.App footer p {
+  margin-bottom: 0;
+  color: #888888;
+}
+
+.App footer a {
+  text-decoration: none;
+  color: #888888;
+}
+
+.App footer a:hover {
+  color: #686666;
+}
+
+.modal .modal-body {
+  text-align: center;
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  body {
+    overflow: auto;
+    position: relative;
+  }
+  .App header {
+    padding: 0;
+  }
+  .App header.active {
+    height: 20vh;
+  }
+  .App header form .input-group {
+    width: 80vw;
+  }
+  .App .wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .App .wrap .information {
+    width: 330px;
+  }
+  .App .wrap .information .insideBorder {
+    padding: 20px;
+    margin: 30px;
+    width: 280px;
+    height: 280px;
+  }
+  .App .wrap .information .insideBorder .title {
+    right: -18px;
+    bottom: -22px;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+  .App .wrap .information .insideBorder .detail {
+    margin: 5px;
+  }
+  .App .wrap .map img {
+    width: 300px;
+    height: 300px;
+    margin: 15px 0;
+  }
+  .App footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-top: 40px;
+  }
+}
+
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+  .App header {
+    padding: 0;
+  }
+  .App header.active {
+    height: 24vh;
+  }
+  .App header form .input-group {
+    width: 50vw;
+  }
+  .App .wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .App .wrap .information {
+    width: 400px;
+  }
+  .App .wrap .information .insideBorder {
+    width: 350px;
+    height: 350px;
+  }
+  .App .wrap .information .insideBorder .title {
+    font-size: 1.8rem;
+  }
+  .App .wrap .map img {
+    width: 360px;
+    height: 360px;
+    margin: 15px 0;
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2022-4-4 22:40:12
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */

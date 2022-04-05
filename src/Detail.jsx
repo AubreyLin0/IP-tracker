@@ -1,8 +1,8 @@
 export default function Detail ({ title, info }) {
   return (
     <div className='detail'>
-      <h4>{title}</h4>
-      <h2>{info}</h2>
+      <h5>{title}</h5>
+      <h3>{info}</h3>
     </div>
   )
 }

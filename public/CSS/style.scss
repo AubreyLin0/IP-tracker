@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap");
 
 @mixin flexCenter($justify, $align, $direction) {
   display: flex;
@@ -8,50 +6,234 @@
   align-items: $align;
   flex-direction: $direction;
 }
-
-header {
-  @include flexCenter(start, center, column);
-  height: 35vh;
-  background-image: url(../images/pattern-bg.png);
+$textColor: #393e46;
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu Mono", monospace;
+  color: $textColor;
+}
+body {
+  background-image: url(../images/background.jpg);
   background-repeat: no-repeat;
-  padding-top: 20px;
-  .title {
-    margin: 10px 0;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+.App {
+  @include flexCenter(center, center, column);
+  header {
+    @include flexCenter(center, center, column);
+    height: 100vh;
+    padding: 30px 0;
+    &.active {
+      height: 30vh;
+      transition: height 0.5s ease;
+    }
+    .title {
+      margin: 10px 0;
+    }
+    form {
+      .input-group {
+        width: 40vw;
+        .btn {
+          font-size: 1.2rem;
+          border: 1px solid #ced4da;
+          i {
+            font-size: 1rem;
+          }
+        }
+        .form-control,
+        .btn,
+        .btn-outline-secondary:focus {
+          box-shadow: unset;
+        }
+      }
+    }
   }
-  form {
-    .input-group {
-      width: 40vw;
+  .hidden {
+    display: none;
+  }
+
+  .wrap {
+    @include flexCenter(center, center, null);
+    width: 70%;
+    &.slide-in-bottom {
+      animation: slide-in-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s
+        both;
+    }
+    .information {
+      @include flexCenter(center, center, column);
+      flex: 1;
+      width: 500px;
+      border-radius: 1rem;
+      background-color: #e7dfd5;
+      .insideBorder {
+        @include flexCenter(null, null, column);
+        border: 10px solid #c9ccd5;
+        padding: 20px;
+        margin: 30px;
+        width: 400px;
+        height: 400px;
+        position: relative;
+        .title {
+          position: absolute;
+          right: -20px;
+          bottom: -30px;
+          padding: 15px;
+          font-size: 2rem;
+          background-color: #e7dfd5;
+          text-transform: uppercase;
+        }
+        .detail {
+          @include flexCenter(null, null, column);
+          margin: 15px;
+          h5 {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .map {
+      @include flexCenter(center, center, null);
+      flex: 1;
+      width: 100%;
+      margin: 0 20px;
+    }
+  }
+  footer {
+    @include flexCenter(center, end, column);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0.5rem;
+    padding: 0 10px;
+    p {
+      margin-bottom: 0;
+      color: #888888;
+    }
+    a {
+      text-decoration: none;
+      color: #888888;
+      &:hover {
+        color: rgb(104, 102, 102);
+      }
+    }
+  }
+}
+.modal {
+  .modal-body {
+    text-align: center;
+  }
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  body {
+    overflow: auto;
+    position: relative;
+  }
+  .App {
+    header {
+      padding: 0;
+      &.active {
+        height: 20vh;
+      }
+      form {
+        .input-group {
+          width: 80vw;
+        }
+      }
+    }
+    .wrap {
+      @include flexCenter(center, center, column);
+      margin-bottom: 50px;
+      .information {
+        width: 330px;
+        .insideBorder {
+          padding: 20px;
+          margin: 30px;
+          width: 280px;
+          height: 280px;
+          .title {
+            right: -18px;
+            bottom: -22px;
+            padding: 10px;
+            font-size: 1.2rem;
+          }
+          .detail {
+            margin: 5px;
+          }
+        }
+      }
+      .map {
+        img {
+          width: 300px;
+          height: 300px;
+          margin: 15px 0;
+        }
+      }
+    }
+    footer {
+      @include flexCenter(center, center, null);
+      padding-top: 40px;
     }
   }
 }
 
-.information {
-  @include flexCenter(center, center, null);
-  position: absolute;
-  top: 35%;
-  left: 40%;
-  transform: translate(-35%, -40%);
-  width: 80%;
-  height: 25vh;
-  border: solid 1px gray;
-  border-radius: 1rem;
-  background-color: #fff;
-  div {
-    @include flexCenter(start, start, null);
-    width: 20vw;
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+  .App {
+    header {
+      padding: 0;
+      &.active {
+        height: 24vh;
+      }
 
-    .detail {
-      @include flexCenter(null, null, column);
-      margin: 15px;
-      h4 {
-        text-transform: uppercase;
+      form {
+        .input-group {
+          width: 50vw;
+        }
       }
     }
-    span {
-      width: 0;
-      height: 80px;
-      border-right: 1px solid gray;
-      margin: 15px 0;
+    .wrap {
+      @include flexCenter(center, center, column);
+      margin-bottom: 50px;
+      .information {
+        width: 400px;
+        .insideBorder {
+          width: 350px;
+          height: 350px;
+          .title {
+            font-size: 1.8rem;
+          }
+        }
+      }
+      .map {
+        img {
+          width: 360px;
+          height: 360px;
+          margin: 15px 0;
+        }
+      }
     }
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2022-4-4 22:40:12
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
