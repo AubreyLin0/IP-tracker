@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/IP-tracker/static/css/main.e7720ab7.css",
+    "main.js": "/IP-tracker/static/js/main.e6b8bbc1.js",
+    "index.html": "/IP-tracker/index.html",
+    "main.e7720ab7.css.map": "/IP-tracker/static/css/main.e7720ab7.css.map",
+    "main.e6b8bbc1.js.map": "/IP-tracker/static/js/main.e6b8bbc1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7720ab7.css",
+    "static/js/main.e6b8bbc1.js"
+  ]
+}
